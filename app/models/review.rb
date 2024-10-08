@@ -5,5 +5,5 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :booking
-  belong_to :workout, through: :booking
+  # belongs_to :workout, through: :bookings
 end
