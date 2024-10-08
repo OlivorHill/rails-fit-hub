@@ -8,4 +8,5 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @booking = Booking.new
   end
+
 end
