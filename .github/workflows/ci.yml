@@ -21,6 +21,15 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Update Bundler
+        run: gem install bundler
+
+      - name: Clear Bundler Cache
+        run: bundle clean --force
+
+      - name: Install Dependencies
+        run: bundle install
+
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
