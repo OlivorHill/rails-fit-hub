@@ -1,11 +1,29 @@
 <div class="navbar">
-  <div class="navbar-logo">
-    <%# <%= cl_image_tag("NAVBAR LOGO GOES HERE", style: "margin-left: 20px;", width: 150) %>
+
+
+  <div class="navbar-child">
+
+    <% if user_signed_in? %>
+
+      <%= link_to accounts_path, class: "avatar-link" do %>
+        <div class="avatar-container">
+          <img src="<%= current_user.profile_picture_url %>" alt="<%= current_user.username %>'s picture" class="avatar">
+          <p style="color: white;"><%= current_user.username %></p>
+        </div>
+      <% end %>
+
+    <% else %>
+      <%= link_to new_user_session_path, class: "avatar-link" do %>
+        <div class="avatar-container">
+          <p id="nav-login-btn" style="color: white;">Log-in / Sign-up</p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
-  <div>
-    <%= link_to "All Workouts", workouts_path %>
+  <div class="nav-btn-container">
+    <%= link_to "Workouts", workouts_path %>
     <%= link_to "My Account", accounts_path %>
-
   </div>
+
 </div>
