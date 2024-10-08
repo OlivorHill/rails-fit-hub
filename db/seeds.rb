@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Creating workouts..."
+Review.destroy_all
+Booking.destroy_all
 Workout.destroy_all
 
 Workout.create!(

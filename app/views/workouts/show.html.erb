@@ -1,13 +1,13 @@
 
-<div class="banner">
+<div class="banner" style="background-image: url('<%= image_path @workout.image_url %>')">
   <h1><%= @workout.name %></h1>
   <p><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
   <%= simple_form_for [@workout, @booking] do |f| %>
     <%= f.submit "Book", class: "btn btn-primary" %>
   <% end %>
 </div>
-<hr>
-<div class="contaienr">
+  <hr>
+<div class="container">
   <h2>Description</h2>
   <p><%= @workout.description %></p>
   <hr>
