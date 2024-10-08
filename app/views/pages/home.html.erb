@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitHub Landing Page</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+</head>
+<body>
+  <section class="landing-page">
+    <div class="hero-container">
+      <h1 class="hero-title">Welcome to FitHub</h1>
+      <a href="#workout-sessions" class="cta-button" role="button">See all Workout Sessions!</a>
+      <a href="#login" class="login-button" role="button">Log In</a>
+    </div>
+  </section>
+</body>
+</html>
