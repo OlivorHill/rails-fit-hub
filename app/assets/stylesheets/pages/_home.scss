@@ -1,1 +1,78 @@
-// Specific CSS for your home-page
+// Variables
+$primary-color: #009951;
+$secondary-color: #32ade6;
+$white: #fff;
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+// Landing Page Styles
+.landing-page {
+  background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/5458960950a597f12534b3b44056120a439394e6eaf760319f8bda04fb286db7');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero-container {
+    text-align: center;
+    color: $white;
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: $primary-color;
+      color: $white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: $secondary-color;
+      color: $white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Responsiveness
+@media (max-width: 768px) {
+  .landing-page {
+    .hero-container {
+      .hero-title {
+        font-size: 36px;
+      }
+
+      .cta-button,
+      .login-button {
+        font-size: 14px;
+        padding: 12px 20px;
+      }
+    }
+  }
+}
+
