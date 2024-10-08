@@ -1,0 +1,22 @@
+
+<div class="banner">
+  <h1><%= @workout.name %></h1>
+  <p><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
+  <%= simple_form_for [@workout, @booking] do |f| %>
+    <%= f.submit "Book", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<hr>
+<div class="contaienr">
+  <h2>Description</h2>
+  <p><%= @workout.description %></p>
+  <hr>
+  <h2>Reviews</h2>
+  <% @workout.reviews.each do |review| %>
+    <div class="review-card">
+      <%= review.comment %>
+      <%= review.rating %>
+      <%= review.user.username %>
+    </div>
+  <% end %>
+</div>
