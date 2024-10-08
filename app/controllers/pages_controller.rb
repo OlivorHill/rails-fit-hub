@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def accounts
+    @bookings = current_user.bookings.includes(:workout)
+  end
 end

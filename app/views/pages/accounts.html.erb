@@ -1,0 +1,16 @@
+<h1>Your Booked Workouts</h1>
+<% if @bookings.any? %>
+  <% @bookings.each do |booking| %>
+    <div>
+      <h2><%= booking.workout.name %></h2>
+      <p>Duration: <%= booking.workout.duration %></p>
+      <p>Description: <%= booking.workout.description %></p>
+      <p>Room: <%= booking.workout.room %></p>
+      <%= link_to 'Cancel Booking', booking_path(booking),
+        data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel this workout?' } %>
+      <hr>
+    </div>
+  <% end %>
+<% else %>
+  <p>You have no booked workouts.</p>
+<% end %>
