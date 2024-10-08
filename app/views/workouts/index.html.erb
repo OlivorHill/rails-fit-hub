@@ -1,0 +1,16 @@
+<h1>Show all Workouts Here!</h1>
+
+<% @workouts.each do | workout | %>
+
+
+<img style="width: 200px;" src="<%= workout.image_url %>" alt="<%= workout.name %>">
+
+<h5><%= workout.name %></h5>
+<p><%= workout.duration %></p>
+<p><%= workout.description %></p>
+<p><%= workout.room %></p>
+<hr>
+
+
+
+<% end %>
