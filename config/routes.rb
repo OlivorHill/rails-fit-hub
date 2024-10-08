@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   resources :workouts, only: [ :index, :show ] do
     resources :bookings, only: [ :create ]
-    resources :reviews, only: [ :create ]
+    resources :reviews, only: [ :new, :create ]
   end
   resources :bookings, only: [ :destroy ]
     # Do we need to add an index for bookings down here?
+  get "accounts", to: "pages#accounts"
 end
