@@ -1,0 +1,17 @@
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-delete {
+  color: black;
+  text-decoration: none;
+}
+
+.btn-delete i {
+  margin-left: 5px;
+}
+
+.btn-delete:hover {
+  color: #cc0000;
+}

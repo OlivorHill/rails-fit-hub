@@ -10,6 +10,7 @@
 puts "Creating workouts..."
 Review.destroy_all
 Booking.destroy_all
+User.destroy_all
 Workout.destroy_all
 
 Workout.create!(
@@ -85,3 +86,34 @@ Workout.create!(
 )
 
 puts "#{Workout.all.count} workouts created"
+
+puts "creating users...."
+
+require 'faker'
+image_url = ['https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611765.jpg', 'https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611725.jpg', 'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671126.jpg' ]
+5.times do
+  puts "creating users...."
+  new_user = Faker::Internet.user;
+  p new_user
+  new = User.create!(email: new_user[:email],
+    username: new_user[:username],
+    password: '123456',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    age: rand(18..80),
+    profile_picture_url: image_url.sample
+  )
+  puts "1 user created...."
+
+  booking = Booking.create!(workout_id: Workout.all.sample.id,
+    user_id: new.id)
+  puts "1 booking created...."
+
+  Review.create!(
+    comment: Faker::Lorem.sentence,
+    rating: rand(1..5),
+    booking_id: booking.id,
+    user_id: new.id
+  )
+  puts "1 review created..."
+end

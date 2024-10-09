@@ -1,22 +1,40 @@
 
-<div class="banner" style="background-image: url('<%= image_path @workout.image_url %>')">
-  <h1><%= @workout.name %></h1>
-  <p><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
-  <%= simple_form_for [@workout, @booking] do |f| %>
-    <%= f.submit "Book", class: "btn btn-primary" %>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path @workout.image_url %>')">
+  <div class="container">
+    <h1><%= @workout.name %></h1>
+    <p><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
+    <% if @booked.empty? %>
+      <%= simple_form_for [@workout, @booking] do |f| %>
+        <%= f.submit "Book", class: 'btn btn-primary button'%>
+      <% end %>
+    <% else %>
+      <p>Booked! See you soon!</p>
+      <%= link_to 'Check my bookings', accounts_path, class: 'btn btn-primary' %>
+      <% end %>
+  </div>
 </div>
   <hr>
-<div class="container">
+<div class="container info-container">
   <h2>Description</h2>
   <p><%= @workout.description %></p>
   <hr>
   <h2>Reviews</h2>
   <% @workout.reviews.each do |review| %>
     <div class="review-card">
-      <%= review.comment %>
-      <%= review.rating %>
-      <%= review.user.username %>
+      <div class="profile">
+        <%= image_tag review.user.profile_picture_url %>
+        <p class="text-center"><%= review.user.username %></p>
+      </div>
+      <div class="comment">
+        <span><i class="fa-solid fa-quote-left"></i> <%= review.comment %></span>
+        <p class='text-center'>
+        <% review.rating.times do %>
+          <i class="fa-solid fa-star" style="color: #009f7a;"></i>
+        <% end %>
+        </p>
+      </div>
+
+
     </div>
   <% end %>
 </div>
