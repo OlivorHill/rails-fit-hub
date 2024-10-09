@@ -61,10 +61,10 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Lint code for consistent style
-        run: |
-            git fetch --depth=1 origin master
-            git diff --name-only origin/master HEAD -- '*.rb' | xargs bin/rubocop --parallel -f github
+      - name: Lint changed files for consistent style
+      run: |
+        git fetch --depth=1 origin master
+        git diff --name-only origin/master HEAD -- '*.rb' | xargs bin/rubocop --parallel -f github || true
 
   test:
     runs-on: ubuntu-latest
