@@ -10,8 +10,8 @@
   <section class="landing-page">
     <div class="hero-container">
       <h1 class="hero-title">Welcome to FitHub</h1>
-      <a href="#workout-sessions" class="cta-button" role="button">See all Workout Sessions!</a>
-      <a href="#login" class="login-button" role="button">Log In</a>
+      <%= link_to 'See all Workout Sessions!', workouts_path, class: "cta-button", role: "button" %>
+      <%= link_to 'Login', new_user_session_path, class: "login-button", role: "button" %>
     </div>
   </section>
 </body>
