@@ -3,14 +3,25 @@ html, body {
   margin: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex: 1; // Make the wrapper grow to take the full height
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; // This makes the content area fill up available space
+}
 
 .footer {
-  // position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  margin-top: 30px;
+  margin: 0;
+  padding-bottom: 5px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
