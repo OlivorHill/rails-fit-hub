@@ -1,16 +1,45 @@
-<h1>Your Booked Workouts</h1>
+<div class="outer-container">
+
+<div class="profile-section">
+  <div class="profile-info">
+    <img src="<%= current_user.profile_picture_url %>" alt="<%= current_user.username %>'s picture" class="profile-picture"/>
+    <div>
+      <h2><%=current_user.username %></h2>
+      <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+      <p><%= current_user.age %></p>
+    </div>
+  </div>
+  <div class="logout-button">
+    <%= link_to 'Log Out',class:'btn-logout' %>
+  </div>
+</div>
+
+<div class="header-container"><h1>My bookings</h1></div>
+<div class="card-container">
 <% if @bookings.any? %>
   <% @bookings.each do |booking| %>
-    <div>
-      <h2><%= booking.workout.name %></h2>
-      <p>Duration: <%= booking.workout.duration %></p>
-      <p>Description: <%= booking.workout.description %></p>
-      <p>Room: <%= booking.workout.room %></p>
-      <%= link_to 'Cancel Booking', booking_path(booking),
-        data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel this workout?' } %>
-      <hr>
+    <div class = "index-card">
+     <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
+      <div class="info-div">
+      <h5><%= booking.workout.name %></h5>
+      <p id = "duration"><em><%= booking.workout.duration %> minutes<em></p>
+      <p><%= booking.workout.description.truncate(70) %></p>
+      <p><%= booking.workout.room %></p>
+      <div class="booking-actions">
+      <%= link_to booking_path(booking),
+    data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure you want to cancel this workout?"
+    },
+    class: "btn-delete" do %>
+    <i class="fa-solid fa-trash"></i>
+   <% end %>
+   </div>
+      </div>
     </div>
   <% end %>
 <% else %>
   <p>You have no booked workouts.</p>
 <% end %>
+<div class="card-container">
+</div>
