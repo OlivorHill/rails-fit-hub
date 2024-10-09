@@ -7,5 +7,6 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @booking = Booking.new
+    @booked = current_user.bookings.where(workout_id: params[:id])
   end
 end
