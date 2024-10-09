@@ -1,17 +1,19 @@
-<h1>Show all Workouts Here!</h1>
 
-<% @workouts.each do | workout | %>
+<div class="outer-container">
+  <div class="header-container"><h1>All Sessions</h1></div>
+    <div class="card-container">
+      <% @workouts.each do | workout | %>
 
-
-<img style="width: 200px;" src="<%= workout.image_url %>" alt="<%= workout.name %>">
-
-<h5><%= workout.name %></h5>
-<p><%= workout.duration %></p>
-<p><%= workout.description %></p>
-<p><%= workout.room %></p>
-<%= link_to "See this workout", workout_path(workout) %>
-<hr>
-
-
-
-<% end %>
+        <%= link_to workout_path(workout) do %>
+        <div class="index-card">
+          <img style="width: 200px;" src="<%= workout.image_url %>" alt="<%= workout.name %>">
+          <div class="info-div">
+            <h5><%= workout.name %></h5>
+            <p id="duration"><em><%= workout.duration %> minutes</em></p>
+            <p><%= workout.description.truncate(70) %></p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
