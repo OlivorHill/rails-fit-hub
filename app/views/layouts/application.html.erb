@@ -19,12 +19,16 @@
 
   <body>
     <div class="wrapper">
-      <%= render "shared/navbar" %>
-      <div class="content">
-        <%= render "shared/flashes" %>
+      <% unless current_page?(root_path) %>
+        <%= render "shared/navbar" %>
+        <div class="content">
+          <%= render "shared/flashes" %>
+          <%= yield %>
+        </div>
+        <%= render "shared/footer" %>
+      <% else %>
         <%= yield %>
-      </div>
-      <%= render "shared/footer" %>
+      <% end %>
     </div>
   </body>
 </html>
