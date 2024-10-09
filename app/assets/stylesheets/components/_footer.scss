@@ -1,9 +1,23 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
 .footer {
+<<<<<<< Updated upstream
   // text-align: center;
   // position: fixed;
   // bottom: 0;
   // left: 0;
   // right: 0;
+=======
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+>>>>>>> Stashed changes
   height: 80px;
   margin-top: 30px;
   display: flex;
