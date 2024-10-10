@@ -1,9 +1,4 @@
 <div class="outer-container">
-
-
-
-
-
   <div class="profile-section user-container">
     <div class="profile-info">
       <img src="<%= current_user.profile_picture_url %>" alt="<%= current_user.username %>'s picture" class="profile-picture"/>
@@ -16,13 +11,6 @@
       <%= link_to 'Log Out', destroy_user_session_path, 'data-turbo-method': :delete, class:'btn-logout' %>
     </div>
   </div>
-
-
-
-
-
-
-
 
   <div class="header-container"><h1>My bookings</h1></div>
 
