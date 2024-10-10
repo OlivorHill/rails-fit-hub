@@ -18,10 +18,14 @@
 }
 
 .profile-picture {
+  object-fit: cover;
   width: 80px;
   height: 80px;
+  margin-right: 20px !important;
+  border: 5px solid rgb(57, 255, 176);
   border-radius: 50%;
   margin-right: 15px;
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .logout-button {
@@ -29,10 +33,22 @@
 }
 
 .btn-logout {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid white;
   color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .btn-delete {
   color: white;
 }
 
+.user-container {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
