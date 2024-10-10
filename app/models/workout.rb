@@ -5,5 +5,6 @@ class Workout < ApplicationRecord
 
   belongs_to :user
   has_many :workout_sessions, dependent: :destroy
+  has_many :bookings, through: :workout_sessions
   has_many :reviews, through: :bookings
 end

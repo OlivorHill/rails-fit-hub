@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :workout_sessions, dependent: :destroy
-  has_many :workouts, through: :bookings
+  has_many :workout_sessions, through: :bookings
+  has_many :workouts
 end
