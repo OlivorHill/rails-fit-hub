@@ -8,7 +8,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { minmum: 6, allow_blank: false }
   # Not sure if we would need to add validations for the email address and password? Does the 'Devise' handle this?
 
-  has_many :bookings
-  has_many :reviews
-  has_many :workouts, through: :bookings
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :workout_sessions, through: :bookings
+  has_many :workouts
 end
