@@ -81,7 +81,7 @@ puts "#{Workout.all.count} workouts created"
 10.times do
   WorkoutSession.create!(
     workout_id: Workout.all.sample.id,
-    date: Date.today + rand(-5..5)
+    date: Date.today + rand(-3..5)
   )
 end
 
