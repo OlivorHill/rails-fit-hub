@@ -76,3 +76,50 @@ body {
   }
 }
 
+
+
+// New class made for custom button
+
+.workouts-btn {
+  width: 270px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 255, 140, 0.3);
+  backdrop-filter: blur(3px);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.2s ease-in-out;
+}
+
+
+.workouts-btn:hover {
+  transform: scale(1.01);
+  background-color: rgba(0, 255, 140, 0.8);
+  border: 2px solid white;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;  /* Centers the div horizontally */
+  align-items: center;      /* Centers the div vertically */
+  height: 100vh;            /* Sets the container height to 100% of the viewport */
+}
+
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
