@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   def create
-    @booking = Booking.new(workout_id: params[:workout_id], user_id: current_user.id)
-    return unless @booking.save
-
-    redirect_to workout_path(params[:workout_id])
+    @workout_session = WorkoutSession.find(params[:workout_session_id])
+    @booking = current_user.bookings.build(workout_session: @workout_session)
+    @booking.save
+    redirect_to workout_path(@workout_session.workout)
   end
 
   def destroy
