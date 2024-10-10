@@ -13,16 +13,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :workouts, only: [ :index, :show ]
-
+  resources :workouts, only: [ :index, :show ] do
+    resources :reviews, only: [ :new, :create ]
+  end
 
   resources :workout_sessions, only: [] do
     resources :bookings, only: [ :create ]
   end
 
-  resources :bookings, only: [ :destroy ] do
-    resources :reviews, only: [ :new, :create ]
-  end
+  resources :bookings, only: [ :destroy ]
+
     # Do we need to add an index for bookings down here?
   get "accounts", to: "pages#accounts"
 end

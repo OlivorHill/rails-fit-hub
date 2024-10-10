@@ -2,7 +2,7 @@
 
 
 <div style="background-color: white;">
-  <%= simple_form_for([@booking, @review]) do |f| %>
+  <%= simple_form_for([@workout, @review]) do |f| %>
     <%= f.input :comment %>
     <%= f.input :rating, collection: 1..5 %>
     <%= f.submit %>

@@ -25,7 +25,7 @@
           <p><%= booking.workout.description.truncate(70) %></p>
           <p><%= booking.workout.room %></p>
           <div class="booking-actions">
-            <%= link_to  new_booking_review_path(booking) do %>
+            <%= link_to   new_workout_review_path(booking.workout) do %>
               <i class="fa-solid fa-message"></i>
             <% end %>
           <%= link_to booking_path(booking),

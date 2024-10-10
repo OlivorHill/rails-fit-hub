@@ -1,19 +1,19 @@
 class ReviewsController < ApplicationController
   def new
     @user = current_user.id
-    @booking = Booking.find(params[:booking_id])
+    @workout = Workout.find(params[:workout_id])
     @review = Review.new
   end
 
   def create
     @user = current_user
-    @booking = Booking.find(params[:booking_id])
+    @workout = Workout.find(params[:workout_id])
     @review = Review.new(review_params)
-    @review.booking = @booking
+    @review.workout = @workout
     @review.user = @user
 
     if @review.save
-      redirect_to workout_path(@booking.workout), notice: "Successfully created a review!"
+      redirect_to workout_path(@workout), notice: "Successfully created a review!"
     else
       render :new, status: :unprocessable_entity
     end
