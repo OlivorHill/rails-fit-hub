@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_08_175553) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_10_111914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "workout_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "workout_session_id", null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
-    t.index ["workout_id"], name: "index_bookings_on_workout_id"
+    t.index ["workout_session_id"], name: "index_bookings_on_workout_session_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -51,6 +51,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_08_175553) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workout_sessions", force: :cascade do |t|
+    t.date "date"
+    t.bigint "workout_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workout_id"], name: "index_workout_sessions_on_workout_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -59,10 +67,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_08_175553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_url"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
   add_foreign_key "bookings", "users"
-  add_foreign_key "bookings", "workouts"
+  add_foreign_key "bookings", "workout_sessions"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
+  add_foreign_key "workout_sessions", "workouts"
+  add_foreign_key "workouts", "users"
 end
