@@ -10,12 +10,15 @@ class WorkoutsController < ApplicationController
     @booking = Booking.new
     # @booked = current_user.bookings.where(workout_session_id: params[:id])
   end
+
+def new
+  @workout = Workout.new
 end
 
 def create
-  @workout = Workout.new(without_params)
+  @workout = Workout.new(workout_params)
   if @workout.save
-    redirect_to @workout, notice: 'Workout was successfully created'
+    redirect_to workouts_path, notice: 'Workout was successfully created'
   else
     render :new
   end
@@ -31,5 +34,10 @@ def update
     redirect_to @workout, notice: 'Workout was successfully updated'
   else
     render :edit
+  end
+end
+
+  def workout_params
+   params.require(:workout).permit(:name, :description, :room, :duration, :image_url)
   end
 end
