@@ -75,3 +75,9 @@
 .btn-create-workout:hover {
   background-color: rgba(0, 255, 157, 0.714);
 }
+
+.container-buttons {
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
+}
