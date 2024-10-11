@@ -9,4 +9,10 @@ class WorkoutsController < ApplicationController
     @sessions = @workout.workout_sessions.sort_by{|session| session.date }
     @booking = Booking.new
   end
+
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    redirect_to accounts_path
+  end
 end
