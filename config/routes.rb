@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :new, :create ]
   end
 
-  resources :workout_sessions, only: [] do
+  resources :workout_sessions, only: [:new, :create] do
     resources :bookings, only: [ :create ]
   end
 
