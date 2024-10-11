@@ -2,7 +2,7 @@
   <h1 style="color: white;">Create A New Session</h1>
   <div class="simple-form" style="background-color: white;">
     <%= simple_form_for @session do |f| %>
-    <%= f.association :workout.name %>
+    <%= f.association :workout.name, collection: @workouts %>
     <%= f.input :date, as: :date, html5: true %>
     <%= f.submit class: 'btn btn-primary'%>
     <% end %>
