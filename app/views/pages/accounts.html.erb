@@ -80,7 +80,7 @@
         <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
         <div class="info-div">
           <h5><%= booking.workout.name %></h5>
-          <p id="duration"><em><%= booking.workout_session.date %> (<%= booking.workout.duration %> minutes)</em></p>
+          <p id="duration"><em><%= booking.workout_session.date.strftime('%a %d %b') %> (<%= booking.workout.duration %> minutes)</em></p>
           <p><%= booking.workout.description.truncate(70) %></p>
           <p><%= booking.workout.room %></p>
           <div class="booking-actions">
@@ -121,7 +121,7 @@
           <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
           <div class="info-div">
             <h5><%= booking.workout.name %></h5>
-            <p id="duration"><em><%= booking.workout_session.date %> (<%= booking.workout.duration %> minutes)</em></p>
+            <p id="duration"><em><%= booking.workout_session.date.strftime('%a %d %b') %> (<%= booking.workout.duration %> minutes)</em></p>
             <p><%= booking.workout.description.truncate(70) %></p>
             <p><%= booking.workout.room %></p>
             <div class ="booking-actions">
