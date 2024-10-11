@@ -6,6 +6,7 @@
   gap: 20px;
 }
 
+
 .profile-info {
   display: flex;
   align-items: center;
@@ -44,7 +45,7 @@
 }
 
 .btn-logout:hover {
-  background-color: rgba(249, 16, 16, 0.628);
+  background-color: rgba(255, 0, 0, 0.714);
 }
 
 .btn-delete {
@@ -52,8 +53,25 @@
 }
 
 .user-container {
-  width: 500px;
+  width: 600px;
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+}
+
+
+
+.btn-create-workout {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.2s ease-in;
+}
+
+.btn-create-workout:hover {
+  background-color: rgba(0, 255, 157, 0.714);
 }

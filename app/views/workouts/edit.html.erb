@@ -1,0 +1,15 @@
+<h1>Edit Workout<h1>
+
+  <%= simple_form_for @workouts do |f| %>
+<div class="form-inputs">
+  <%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :room %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, 'Update Workout' %>
+,/div>
+<% end %>
+
+<%= link_to 'Back', workouts_path %>

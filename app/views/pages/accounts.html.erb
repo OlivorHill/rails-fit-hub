@@ -7,11 +7,20 @@
         <p><%= current_user.first_name %> <%= current_user.last_name %></p>
       </div>
     </div>
+
+    <div class="logout-button">
+      <%= link_to 'Create Workout', destroy_user_session_path, 'data-turbo-method': :delete, class:'btn-create-workout' %> <%# WE NEED TO CHANGE THE PATH FOR THIS BUTTON ONCE WE HAVE THE UPDATE FOR CREATING A WORKOUT FROM OMAR?  %>
+    </div>
+
     <div class="logout-button">
       <%= link_to 'Log Out', destroy_user_session_path, 'data-turbo-method': :delete, class:'btn-logout' %>
     </div>
   </div>
 
+
+
+
+  </div>
   <div class="header-container">
     <h2>Upcoming Bookings</h2>
   </div>
