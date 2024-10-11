@@ -31,50 +31,51 @@ puts "Creating wokrout creators.."
 
 puts "creating workouts"
     # creating 5 workouts created by sample of previous users
-  Workout.create!(
-    name: "Morning Yoga",
-    description: "A relaxing yoga session to start your day.",
-    duration: 60,
-    room: "Yoga room",
-    image_url: "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    user_id: User.all.sample.id
-  )
-
-  Workout.create!(
-    name: "HIIT Training",
-    description: "High-intensity interval training for a full-body workout.",
-    duration: 45,
-    room: "Gym room",
-    image_url: "https://images.pexels.com/photos/4720796/pexels-photo-4720796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    user_id: User.all.sample.id
+    Workout.create!(
+      name: "Morning Yoga",
+      description: "Begin your day with a peaceful and rejuvenating yoga session designed to enhance flexibility, mindfulness, and inner balance. This session combines gentle stretching, deep breathing, and meditation, making it perfect for all levels, whether you're new to yoga or an experienced practitioner. Set in a serene atmosphere, this practice will leave you feeling centered and ready to take on the day with calm energy.",
+      duration: 60,
+      room: "Yoga room",
+      image_url: "https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      user_id: User.all.sample.id
     )
 
-  Workout.create!(
-    name: "Strength Training",
-    description: "A strength-building workout focusing on weightlifting.",
-    duration: 90,
-    room: "Weight room",
-    image_url: "https://images.pexels.com/photos/841128/pexels-photo-841128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    user_id: User.all.sample.id,
-  )
+    Workout.create!(
+      name: "HIIT Training",
+      description: "Push your limits with a dynamic and intense HIIT (High-Intensity Interval Training) workout that combines short bursts of maximum-effort exercises with brief recovery periods. This full-body workout will elevate your heart rate, burn fat, and improve endurance in less time than traditional workouts. Perfect for those who want to build strength and boost cardiovascular health. Be prepared to sweat and challenge yourself in this fast-paced, fun session.",
+      duration: 45,
+      room: "Gym room",
+      image_url: "https://images.pexels.com/photos/4720796/pexels-photo-4720796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      user_id: User.all.sample.id
+    )
 
-  Workout.create!(
-    name: "Pilates",
-    description: "A low-impact workout that emphasizes core strength, flexibility, and alignment.",
-    duration: 55,
-    room: "Studio A",
-    image_url: "https://plus.unsplash.com/premium_photo-1661720873706-b5a2cfcae765?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    user_id: User.all.sample.id
-  )
+    Workout.create!(
+      name: "Strength Training",
+      description: "Focus on building muscle and enhancing overall strength with this comprehensive strength training session. Using a combination of free weights, resistance machines, and bodyweight exercises, you'll work on developing key muscle groups across the body. This session is perfect for those looking to improve muscle tone, endurance, and overall power. With guided form corrections and progressive overload techniques, you'll leave feeling stronger and more confident.",
+      duration: 90,
+      room: "Weight room",
+      image_url: "https://images.pexels.com/photos/841128/pexels-photo-841128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      user_id: User.all.sample.id
+    )
 
-  Workout.create!(
-    name: "CrossFit",
-    description: "A challenging workout incorporating functional movements, weightlifting, and metabolic conditioning.",
-    duration: 60,
-    room: "Functional Fitness Room",
-    image_url: "https://b2171211.smushcdn.com/2171211/wp-content/uploads/2022/07/CrossFit.jpg?size=1080x675&lossy=1&strip=1&webp=1",
-    user_id: User.all.sample.id
-  )
+    Workout.create!(
+      name: "Pilates",
+      description: "Strengthen your core and enhance your overall body control with this low-impact Pilates session. Focused on precision, alignment, and controlled movements, Pilates is a great workout for improving flexibility, posture, and muscle balance. The exercises target the core, but also engage the entire body to build stability and coordination. This class is perfect for those who want a toned body, improved mobility, and a mindful approach to fitness.",
+      duration: 55,
+      room: "Studio A",
+      image_url: "https://plus.unsplash.com/premium_photo-1661720873706-b5a2cfcae765?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      user_id: User.all.sample.id
+    )
+
+    Workout.create!(
+      name: "CrossFit",
+      description: "Test your physical limits with this high-intensity CrossFit class, designed to push you through a combination of functional movements, weightlifting, and metabolic conditioning. Expect a mix of cardio, strength training, and agility drills that will challenge every muscle in your body. CrossFit workouts are varied, ensuring that no two sessions are alike, and you'll be constantly working on improving your fitness levels. It's tough but rewarding, and you'll feel a sense of accomplishment after each class.",
+      duration: 60,
+      room: "Functional Fitness Room",
+      image_url: "https://b2171211.smushcdn.com/2171211/wp-content/uploads/2022/07/CrossFit.jpg?size=1080x675&lossy=1&strip=1&webp=1",
+      user_id: User.all.sample.id
+    )
+
 
   puts "#{Workout.all.count} workouts created"
 
