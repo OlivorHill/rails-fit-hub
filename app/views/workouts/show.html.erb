@@ -2,11 +2,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)), url('<%= image_path @workout.image_url %>')">
   <div class="container">
     <h1><%= @workout.name %></h1>
-    <p><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
+    <p style="text-shadow: 4px 1px 8px rgba(0, 0, 0, 0.7);"><strong><%= @workout.duration %> minutes in <%= @workout.room %></strong></p>
     <div class = 'sessions'>
       <% @sessions.each do |session| %>
         <% if session.date >= Date.today%>
-          <div class='card'><h5><%= session.date %></h5>
+          <div class='card'><p><%= session.date.strftime('%a %d %b')  %></p>
             <% if session.bookings.where(user: current_user).any? %>
               Booked!
             <%else%>
@@ -32,7 +32,7 @@
     <div class="review-card">
       <div class="profile">
         <%= image_tag review.user.profile_picture_url %>
-        <p class="text-center"><%= review.user.username %></p>
+        <p style="font-weight: bold" class="text-center"><%= review.user.username %></p>
       </div>
       <div class="comment">
         <span><i class="fa-solid fa-quote-left"></i> <%= review.comment %></span>
