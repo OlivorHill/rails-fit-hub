@@ -1,8 +1,13 @@
-<%= simple_form_for @workout do |f| %>
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.input :room %>
-<%= f.input :duration, as: :integer %>
-<%= f.input :image_url %>
-<%= f.submit class: 'btn btn-primary'%>
-<% end %>
+<div class="form-container">
+  <h1 style="color: white;">New Review Form</h1>
+  <div class="simple-form" style="background-color: white;">
+    <%= simple_form_for @workout do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :room %>
+    <%= f.input :duration, as: :integer %>
+    <%= f.input :image_url %>
+    <%= f.submit class: 'btn btn-primary'%>
+    <% end %>
+  </div>
+</div>
