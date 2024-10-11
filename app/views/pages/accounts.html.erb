@@ -12,38 +12,68 @@
     </div>
   </div>
 
-  <div class="header-container"><h1>My bookings</h1></div>
-
+  <div class="header-container">
+    <h2>Upcoming Bookings</h2>
+  </div>
+  <% upcoming_bookings = @bookings.select { |booking| booking.workout_session.date >= Date.today } %>
+    <%upcoming_bookings = upcoming_bookings.sort_by{|booking| booking.workout_session.date }%>
   <div class="card-container">
-    <% if @bookings.any? %>
-      <% @bookings.each do |booking| %>
-        <div class = "index-card">
-        <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
+    <% if upcoming_bookings.any? %>
+      <% upcoming_bookings.each do |booking| %>
+        <div class="index-card">
+          <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
           <div class="info-div">
-          <h5><%= booking.workout.name %></h5>
-          <p id = "duration"><em><%= booking.workout_session.date %> (<%= booking.workout.duration %> minutes)<em></p>
-          <p><%= booking.workout.description.truncate(70) %></p>
-          <p><%= booking.workout.room %></p>
-          <div class="booking-actions">
-            <%= link_to   new_workout_review_path(booking.workout) do %>
-              <i class="fa-solid fa-message"></i>
-            <% end %>
-          <%= link_to booking_path(booking),
-        data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure you want to cancel this workout?"
-        },
-        class: "btn-delete" do %>
-        <i class="fa-solid fa-trash"></i>
-      <% end %>
-      </div>
+            <h5><%= booking.workout.name %></h5>
+            <p id="duration"><em><%= booking.workout_session.date %> (<%= booking.workout.duration %> minutes)</em></p>
+            <p><%= booking.workout.description.truncate(70) %></p>
+            <p><%= booking.workout.room %></p>
+            <div class="booking-actions">
+              <%= link_to booking_path(booking),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+                  class: "btn-delete" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
     <% else %>
-    <div class="booking-text">
-      <p>You have no booked workouts.</p>
-    </div>
+      <div class="booking-text">
+        <p>You have no upcoming bookings.</p>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="header-container">
+    <h2>Past Bookings</h2>
+  </div>
+  <% past_bookings = @bookings.select { |booking| booking.workout_session.date < Date.today } %>
+  <%past_bookings = past_bookings.sort_by{|booking| booking.workout_session.date }%>
+  <div class="card-container">
+    <% if past_bookings.any? %>
+      <% past_bookings.reverse.each do |booking| %>
+        <div class="index-card">
+          <img style="width: 200px;" src="<%= booking.workout.image_url %>" alt="<%= booking.workout.name %>">
+          <div class="info-div">
+            <h5><%= booking.workout.name %></h5>
+            <p id="duration"><em><%= booking.workout_session.date %> (<%= booking.workout.duration %> minutes)</em></p>
+            <p><%= booking.workout.description.truncate(70) %></p>
+            <p><%= booking.workout.room %></p>
+            <div class ="booking-actions">
+             <%= link_to new_workout_review_path(booking.workout) do %>
+               <i class="fa-solid fa-message"></i>
+             <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="booking-text">
+        <p>You have no past bookings.</p>
+      </div>
     <% end %>
   </div>
 </div>
