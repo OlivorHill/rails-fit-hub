@@ -17,6 +17,7 @@ end
 
 def create
   @workout = Workout.new(workout_params)
+  @workout.user = current_user
   if @workout.save
     redirect_to workouts_path, notice: 'Workout was successfully created'
   else

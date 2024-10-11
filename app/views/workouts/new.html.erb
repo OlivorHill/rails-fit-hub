@@ -2,7 +2,7 @@
 <%= f.input :name %>
 <%= f.input :description %>
 <%= f.input :room %>
-<%= f.input :duration, as: :string, label: 'Duration (e.g., 1h 30m)' %>
+<%= f.input :duration, as: :integer %>
 <%= f.input :image_url %>
 <%= f.submit class: 'btn btn-primary'%>
 <% end %>
