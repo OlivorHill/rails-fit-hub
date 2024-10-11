@@ -57,43 +57,43 @@
 
   </div>
 
-   <div class="header-container">
-    <h2>My Workouts</h2>
-  </div>
+<% if current_user.workouts.any? %>
 
-  <div class="card-container">
-    <% if @current_user.workouts.any? %>
-      <% current_user.workouts.each do |workout| %>
-        <div class="index-card">
-          <img style="width: 200px;" src="<%= workout.image_url %>" alt="<%= workout.name %>">
-          <div class="info-div">
-            <h5><%= workout.name %></h5>
-            <p id="duration"><em><%= workout.duration %> minutes</em></p>
-            <p><%= workout.description.truncate(70) %></p>
-            <p><%= workout.room %></p>
-            <div class="booking-actions">
-              <%= link_to workout_path(workout),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
-                  class: "btn-delete" do %>
-                <i class="fa-solid fa-trash"></i>
-              <% end %>
+  <div class="outer-container">
+    <div class="header-container">
+      <h2>My Workouts</h2>
+    </div>
+
+    <div class="card-container">
+      <% if @current_user.workouts.any? %>
+        <% current_user.workouts.each do |workout| %>
+          <div class="index-card">
+            <img style="width: 200px;" src="<%= workout.image_url %>" alt="<%= workout.name %>">
+            <div class="info-div">
+              <h5><%= workout.name %></h5>
+              <p id="duration"><em><%= workout.duration %> minutes</em></p>
+              <p><%= workout.description.truncate(70) %></p>
+              <p><%= workout.room %></p>
+              <div class="booking-actions">
+                <%= link_to workout_path(workout),
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+                    class: "btn-delete" do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
             </div>
           </div>
+        <% end %>
+      <% else %>
+        <div class="booking-text">
+          <p>You have not created any workouts.</p>
         </div>
       <% end %>
-    <% else %>
-      <div class="booking-text">
-        <p>You have not created any workouts.</p>
-      </div>
+    </div>
     <% end %>
   </div>
 
-  <% else %>
-    <div class="booking-text">
-      <p>You have no upcoming bookings.</p>
-    </div>
-  <% end %>
-</div>
+<% end %>
 
 
 
