@@ -40,6 +40,11 @@
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(3px);
   box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.2s ease-in;
+}
+
+.btn-logout:hover {
+  background-color: rgba(249, 16, 16, 0.628);
 }
 
 .btn-delete {

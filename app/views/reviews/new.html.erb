@@ -1,10 +1,10 @@
-<h1 style="color: white;">New Review Form</h1>
-
-
-<div style="background-color: white;">
-  <%= simple_form_for([@workout, @review]) do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating, collection: 1..5 %>
-    <%= f.submit %>
-  <% end %>
+<div class="form-container">
+  <h1 style="color: white;">New Review Form</h1>
+  <div class="simple-form" style="background-color: white;">
+    <%= simple_form_for([@workout, @review]) do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
