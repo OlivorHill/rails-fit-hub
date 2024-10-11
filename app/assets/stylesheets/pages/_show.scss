@@ -13,6 +13,7 @@
   width: 500px;
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   .profile{
     width: 30%;
@@ -57,7 +58,7 @@
 
 .card{
   display: flex;
-  height: 100px;
+  height: 120px;
   width: 135px;
   flex-direction: column;
   margin: 8px;
@@ -70,8 +71,7 @@
   border: 1px solid white;
 
   p{
-    margin-bottom: 4px;
+    margin-bottom: 16px;
   }
-
 
 }
