@@ -127,10 +127,11 @@ GEM
     execjs (2.9.1)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.0)
+    ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
-    font-awesome-sass (6.5.2)
+    ffi (1.17.0-x86_64-linux-gnu)
+    font-awesome-sass (6.7.2)
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -339,7 +340,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
-  font-awesome-sass (~> 6.1)
+  font-awesome-sass (~> 6.7)
   importmap-rails
   jbuilder
   pg (~> 1.1)
